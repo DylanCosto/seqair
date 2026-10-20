@@ -1,6 +1,6 @@
 [package]
 name = "compair"
-version = "0.2.0"
+version = "0.2.1"
 edition = "2024"
 description = "Banded affine-gap pair-HMM with a pluggable, conversion-aware emission model"
 repository = "https://github.com/Softleif/seqair"
@@ -13,8 +13,8 @@ exclude = ["fuzz/*", "tests/*", "benches/*"]
 [dependencies]
 seqair-types = { version = "^0.3.1", path = "../seqair-types" }
 thiserror = { workspace = true }
-fearless_simd = "1.1"
-fearless_simd_macros = "0.1"
+fearless_simd = { workspace = true }
+fearless_simd_macros = { workspace = true }
 # The `gpu` feature: the banded pair-HMM as a wgpu compute shader. The versions
 # are rastair's (biosphere's GPU inference), so the two share one device stack.
 wgpu = { version = "30", optional = true }
@@ -44,10 +44,10 @@ gkl-cpp = ["gkl/c-avx", "gkl/c-avx512"]
 [dev-dependencies]
 # Compiles fearless_simd's scalar `Fallback` level on SIMD targets too, so the
 # parity tests can run it next to every vector level the CPU has.
-fearless_simd = { version = "1.1", features = ["force_support_fallback"] }
+fearless_simd = { workspace = true, features = ["force_support_fallback"] }
 hegeltest = { workspace = true }
 criterion = "0.8.2"
-bio = { version = "4.0.1", default-features = false }
+bio = { version = "4.2.2", default-features = false }
 
 # The benchmark target: a Rust port of the kernel GATK actually calls through
 # JNI. Pinned to git rather than crates.io because 0.1.1 is FFI-only to the C++

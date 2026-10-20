@@ -104,7 +104,7 @@ checksum = "f079e83a288787bcd14a6aea84cee5c87a67c5a3e660c30f557a3d24761b3527"
 
 [[package]]
 name = "compair"
-version = "0.2.0"
+version = "0.2.1"
 dependencies = [
  "fearless_simd",
  "fearless_simd_macros",
@@ -349,7 +349,7 @@ checksum = "6b1e7f9a428571be2dc5bc0505c13fb6bf936822b894ec87abf8a08a4e51742d"
 
 [[package]]
 name = "seqair"
-version = "0.5.0"
+version = "0.6.0"
 dependencies = [
  "bytemuck",
  "bz2ngrs",
@@ -440,9 +440,9 @@ checksum = "3a219298ac11a56ea9a6d2120044824d6f01aeb034955e7af7bc16858527deea"
 
 [[package]]
 name = "smallvec"
-version = "2.0.0-beta.2"
+version = "2.0.0-beta.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "ea3c9b717472722a7bf1def25b976350fc5d2f57bd710e83d96de1f211e035cf"
+checksum = "260f642f866b34ad70fb59f47aed43ab21c36d5d82891f82b0cf4cd551a187d2"
 dependencies = [
  "serde_core",
 ]
