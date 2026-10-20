@@ -268,7 +268,7 @@ mod tests {
     fn snv_basic() {
         let a = Alleles::snv(Base::A, Base::T).unwrap();
         assert_eq!(a.ref_text(), "A");
-        assert_eq!(a.alt_texts().as_slice(), [SmolStr::from("T")]);
+        assert_eq!(*a.alt_texts(), [SmolStr::from("T")]);
         assert_eq!(a.rlen(), 1);
         assert_eq!(a.n_allele(), 2);
     }
@@ -286,7 +286,7 @@ mod tests {
         assert_eq!(a.ref_text(), "A");
         let alts = a.alt_texts();
         assert_eq!(alts.len(), 2);
-        assert_eq!(alts.as_slice(), [SmolStr::from("T"), SmolStr::from("C")]);
+        assert_eq!(*alts, [SmolStr::from("T"), SmolStr::from("C")]);
         assert_eq!(a.n_allele(), 3);
     }
 
@@ -308,7 +308,7 @@ mod tests {
         // Insertion of CGT after anchor A → REF=A, ALT=ACGT
         let a = Alleles::insertion(Base::A, &[Base::C, Base::G, Base::T]).unwrap();
         assert_eq!(a.ref_text(), "A");
-        assert_eq!(a.alt_texts().as_slice(), [SmolStr::from("ACGT")]);
+        assert_eq!(*a.alt_texts(), [SmolStr::from("ACGT")]);
         assert_eq!(a.rlen(), 1);
         assert_eq!(a.n_allele(), 2);
     }
@@ -325,7 +325,7 @@ mod tests {
         // Deletion of CGT after anchor A → REF=ACGT, ALT=A
         let a = Alleles::deletion(Base::A, &[Base::C, Base::G, Base::T]).unwrap();
         assert_eq!(a.ref_text(), "ACGT");
-        assert_eq!(a.alt_texts().as_slice(), [SmolStr::from("A")]);
+        assert_eq!(*a.alt_texts(), [SmolStr::from("A")]);
         assert_eq!(a.rlen(), 4);
         assert_eq!(a.n_allele(), 2);
     }
